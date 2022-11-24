@@ -26,18 +26,33 @@ function DragImage() {
   )
 }
 
+const isBrowser = matchMedia('(display-mode: browser)').matches
+window.addEventListener('DOMContentLoaded', () => {
+  console.log('isBrowser', isBrowser)
+  // if (!isBrowser) {
+  //   const w = 800
+  //   const h = 600
+  //   window.resizeBy(
+  //     (window.screen.width - w) / 2,
+  //     (window.screen.height - h) / 2,
+  //   )
+  //   window.resizeTo(w, h)
+  // }
+})
+
 export function App() {
   const [url, setUrl] = useState<string>()
+  const [mounted, setMounted] = useState(false)
   useEffect(() => {
     if ('launchQueue' in window && 'files' in LaunchParams.prototype) {
       launchQueue.setConsumer(async (launchParams) => {
         if (!launchParams.files.length) {
           return
         }
-        const s = URL.createObjectURL(await launchParams.files[0].getFile())
-        setUrl(s)
+        setUrl(URL.createObjectURL(await launchParams.files[0].getFile()))
       })
     }
+    setMounted(true)
   }, [])
   async function onDrop(ev: DragEvent) {
     ev.preventDefault()
@@ -66,5 +81,5 @@ export function App() {
       window.removeEventListener('dragover', onDragOver)
     }
   }, [])
-  return url ? <img src={url} /> : <DragImage />
+  return mounted && (url ? <img class={css.img} src={url} /> : <DragImage />)
 }

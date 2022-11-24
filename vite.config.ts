@@ -13,11 +13,19 @@ export default defineConfig({
         enabled: true,
       },
       manifest: {
+        id: 'rxliuli.image-viewer',
+        short_name: '图片查看器',
+        name: '图片查看器',
         icons: [
           {
             src: '/icons/logo512x512.png',
             sizes: '512x512',
             type: 'image/png',
+          },
+          {
+            src: '/icons/logo.svg',
+            sizes: 'any',
+            type: 'image/svg',
           },
         ],
         file_handlers: [
