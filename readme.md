@@ -1,6 +1,6 @@
 # 图片查看器
 
-好吧，只是发现了 [web filesystem api](https://web.dev/patterns/files/)，以及令人震惊的文件管理器集成，所以写个 demo 测试一下。
+好吧，只是发现了 [web filesystem api](https://web.dev/patterns/files/)，以及令人震惊的文件管理器集成（天知道用 nodejs 操纵注册表有多恶心），所以写个 demo 测试一下。
 
 演示
 
