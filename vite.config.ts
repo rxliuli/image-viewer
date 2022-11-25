@@ -32,7 +32,25 @@ export default defineConfig({
           {
             action: './',
             accept: {
-              'image/*': ['.jpg', '.jpeg', '.png', '.webp', '.svg'],
+              // ref: https://developer.mozilla.org/zh-CN/docs/Web/Media/Formats/Image_types
+              'image/*': [
+                '.apng',
+                '.avif',
+                '.bmp',
+                '.gif',
+                '.ico',
+                '.cur',
+                '.jpg',
+                '.jpeg',
+                '.jfif',
+                '.pjpeg',
+                '.pjp',
+                '.png',
+                '.svg',
+                '.tif',
+                '.tiff',
+                '.webp',
+              ],
             },
           },
         ],
